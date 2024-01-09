@@ -1,0 +1,20 @@
+<app-header></app-header>
+<div id="div">
+<div *ngFor="let user of users">
+    <p><input type="text" name="" id="" placeholder="{{user.username}}">
+       <input type="text" name="" id="" placeholder="{{user.role}}">
+        <button (click)="editUser(user.id)">modifier</button>
+        <button (click)="deleteUser(user.id)">suprimmer</button>
+    </p>
+</div>
+<button (click)="confirmer()">Add</button>
+<form *ngIf="add" (ngSubmit)="addUser()">
+    <input [(ngModel)]="newUser.username" name="Name" type="text">
+<input [(ngModel)]="newUser.password" name="Password" type="password">
+    <select id="role" name="role" required [(ngModel)]="newUser.role">
+        <option value="formateur">formateur</option>
+        <option value="candidat">candidat</option>
+    </select>
+    <button type="submit">ajout</button>
+</form>
+</div>

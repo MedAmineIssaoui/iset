@@ -1,0 +1,22 @@
+<app-header></app-header>
+
+<div class="container mt-4"> <!-- Add Bootstrap container class and margin-top -->
+  <div class="card-deck"> <!-- Use Bootstrap card-deck class -->
+    <div class="card" *ngFor="let category of categorizedFormations">
+      <h3 class="card-header">{{ category.category }}</h3>
+      <div class="card-body">
+        <div class="card" *ngFor="let formation of category.formations">
+          <img [src]="formation.image" alt="{{ formation.title }}" class="card-img-top" style="width: 100%"> <!-- Use Bootstrap card-img-top class -->
+          <div class="card-body">
+            <h5 class="card-title">{{ formation.title }}</h5>
+            <p class="card-text">{{ formation.description }}</p>
+            <p class="card-text">Charge horaire: {{ formation.charge_horaire }} heures</p>
+            <p class="card-text">Niveau de difficulté: {{ formation.niveau_difficulte }}</p>
+            <p class="card-text price">{{ formation.price }}</p>
+            <button class="btn btn-primary">Inscri</button> <!-- Use Bootstrap btn and btn-primary classes -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,112 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "amine",
+      "password": "123",
+      "role": "candidat",
+      "formations": [2, 5, 3]
+    },
+    {
+      "id": 2,
+      "username": "rami",
+      "password": "123",
+      "role": "formateur",
+      "formations": [1]
+    },
+    {
+      "id": 3,
+      "username": "admin",
+      "password": "admin",
+      "role": "admin"
+    },
+    {
+      "username": "user4",
+      "password": "userPass",
+      "role": "candidat",
+      "formations": [],
+      "id": 4
+    },
+    {
+      "username": "user5",
+      "password": "userPass",
+      "role": "candidat",
+      "formations": [],
+      "id": 5
+    },
+    {
+      "username": "user6",
+      "password": "userPass",
+      "role": "candidat",
+      "formations": [],
+      "id": 6
+    }
+  ],
+  "formations": [
+    {
+      "id": 1,
+      "title": "Formation React",
+      "description": "Formation complète sur React",
+      "charge_horaire": 35,
+      "programme": "Introduction à React, Components, Hooks, Redux, Routing, etc.",
+      "niveau_difficulte": "intermédiaire",
+      "tags": ["React", "JavaScript", "Web Development"],
+      "categories": ["Technology", "Web Development"],
+      "price": "$49.99",
+      "image": "react.jpg"
+    },
+    {
+      "id": 2,
+      "title": "Formation Python",
+      "description": "Formation avancée sur Python",
+      "charge_horaire": 40,
+      "programme": "Fondamentaux de Python, OOP, Flask, Django, Data Science avec Python, etc.",
+      "niveau_difficulte": "avancé",
+      "tags": ["Python", "Programming", "Data Science"],
+      "categories": ["Technology", "Programming"],
+      "price": "$59.99",
+      "image": "python.jpg"
+    },
+    {
+      "id": 3,
+      "title": "Formation Marketing Digital",
+      "description": "Stratégies de marketing digital pour les entreprises",
+      "charge_horaire": 25,
+      "programme": "SEO, SEM, Réseaux sociaux, Email Marketing, Analytics, etc.",
+      "niveau_difficulte": "intermédiaire",
+      "tags": ["Marketing", "Digital Marketing", "SEO"],
+      "categories": ["Business", "Marketing"],
+      "price": "$39.99",
+      "image": "marketing.jpg"
+    }
+  ],
+  "sessions": [
+    {
+      "id": 1,
+      "formation_id": 1,
+      "formateur": "John Doe",
+      "start_date": "2023-01-01",
+      "end_date": "2023-01-30",
+      "max_candidates": 15,
+      "registered_candidates": 15
+    },
+    {
+      "id": 2,
+      "formation_id": 2,
+      "formateur": "Jane Smith",
+      "start_date": "2023-02-01",
+      "end_date": "2023-02-28",
+      "max_candidates": 15,
+      "registered_candidates": 11
+    },
+    {
+      "id": 3,
+      "formation_id": 3,
+      "formateur": "Alice Johnson",
+      "start_date": "2023-03-01",
+      "end_date": "2023-03-31",
+      "max_candidates": 15,
+      "registered_candidates": 1
+    }
+  ]
+}
