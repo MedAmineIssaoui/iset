@@ -8,7 +8,7 @@
       <img [src]="formation.image" alt="{{ formation.titre }}" style="width: 100%">
       <h1>{{ formation.title }}</h1>
       <p class="price">{{ formation.price }}</p>
-      <p><button (click)="navigateToDetails(formation)">Details</button></p>
+      <p><button [routerLink]="'/detail/'+formation.id">Details</button></p>
     </div>
   </div>
 </div>

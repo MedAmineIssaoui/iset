@@ -1,16 +1,18 @@
 <h1>Formation List</h1>
-<ul>
-    <li>
-        <span>Description : &nbsp;{{ formations.description }}</span>
-    </li>
-    <li>
-
-        <span>Titre : &nbsp;{{ formations.titre }}</span>
-    </li>
-    <li>
-
-        <span>Horaire : &nbsp;{{ formations.horaire }}</span>
-    </li>
-    
-    <button (click)="inscrit()">Insecrit</button>
-</ul>
+<div class="container" *ngIf="formations">
+    <h2>{{ formations.title }}</h2>
+    <img [src]="formations.image" alt="{{ formations.title }}" style="width: 100%">
+    <p class="price">{{ formations.price }}</p>
+    <p>{{ formations.description }}</p>
+    <p>Charge horaire: {{ formations.charge_horaire }} heures</p>
+    <p>Niveau de difficulté: {{ formations.niveau_difficulte }}</p>
+    <div *ngIf="sessions">
+      <div *ngFor="let session of sessions">
+        <p>{{ session.formateur }}</p>
+        <p>Dates: {{ session.start_date }} - {{ session.end_date }}</p>
+        <p>Registered Candidates: {{ session.registered_candidates }} / {{ session.max_candidates }}</p>
+        <button (click)="inscrit(session)" [disabled]="session.registered_candidates >= session.max_candidates">
+          S'inscrire
+        </button>
+      </div>
+    </div>

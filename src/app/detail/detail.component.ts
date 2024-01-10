@@ -11,45 +11,47 @@ import { SessionService } from '../service/session.service'
   styleUrls: ['./detail.component.css'],
 })
 export class DetailComponent {
+  formationId: number=0;
   formations: any;
   sessions: any;
   constructor(
     private route: ActivatedRoute,
     private AuthService: AuthService,
     private router: Router,
-    private sess:SessionService
+    private sess:SessionService,
+    private form:FormationService
   ) {}
   ngOnInit() {
-    this.route.queryParams.subscribe((params) => {
-      this.formations = params;
-      console.log(this.formations);
-      this.sessions = this.sess.getSession(params.id)
+    this.route.params.subscribe(params => {
+      this.formationId = +params['id'];
+      this.loadFormationDetails();
+      this.loadSessionDetails();
     });
   }
-  
-
-  inscrit() {
-    let id = localStorage.getItem('userId');
-    let formationList: any = [];
-    let username = localStorage.getItem('username');
-    let password = localStorage.getItem('password');
-    formationList.push(localStorage.getItem('userformation'));
-let userInformations : any =  [...formationList, this.formations.id]
-
-    if (id) {
-      let dataTOupdate = {
-        id: id,
-        username: username,
-        password: password,
-        formation:userInformations
-      };
-      this.AuthService.updateUser(dataTOupdate);
-    localStorage.removeItem("userformation")
-    localStorage.setItem('userformation', userInformations);
-
-
-    } else {
-      this.router.navigate(['/login']);
-    }
+  loadFormationDetails(): void {
+    this.form.getFormationById(this.formationId).subscribe(
+      (formation)=>{
+        this.formations=[formation];
+      }
+    );
   }
+  loadSessionDetails(){
+    this.sess.getSession(this.formationId).subscribe(
+      (sessions) => {
+        this.sessions = [sessions];}
+        )}
+  inscrit(session: any): void {
+    if (this.AuthService.islogin()) {
+      this.AuthService.getFormations().subscribe(
+        (userFormations: string[]) => {
+          if (userFormations.includes(session.formation_id)) {
+            console.log('User is already registered for this session.');
+            return;
+          } else if (session.registered_candidates < session.max_candidates) {
+            session.registered_candidates++;
+            this.sess.addCandidate(this.formationId)
+    }})} else {
+      this.router.navigate(['login']);
+  }
+}
 }

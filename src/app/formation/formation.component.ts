@@ -39,11 +39,4 @@ export class FormationComponent implements OnInit {
 
       return tags.some(tag => tag.toLowerCase().includes(query));
     }
-    navigateToDetails(formation : any){
-      console.log(formation);
-      
-console.log("aezazeaz");
-
-      this.router.navigate(['/detail'], { queryParams: formation });
-    }
 }

@@ -11,7 +11,7 @@ const routes: Routes = [
     {path:'formation',component:FormationComponent},
     {path:'login',component:LoginComponent},
     {path:'admin', component:AdminComponent },
-    {path:'detail', component:DetailComponent },
+    {path:'detail/:id', component:DetailComponent },
 
   {path:'**',component: HomeComponent },
 ];
